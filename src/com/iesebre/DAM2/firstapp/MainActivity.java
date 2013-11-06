@@ -19,6 +19,7 @@ import android.widget.Toast;
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 private LinearLayout root;
+int count = 0;
 private OnTouchListener mCorkyListener = new OnTouchListener() {
     
 
@@ -79,6 +80,20 @@ private OnTouchListener mCorkyListener = new OnTouchListener() {
 			btn1.setLayoutParams(widgetParams);
 			btn1.setText(R.string.blue);
 			lll.addView(btn1);	
+			
+		
+
+	        btn1.setOnTouchListener(new OnTouchListener() {
+	            @Override
+	            public boolean onTouch(View v, MotionEvent event) {
+	            //Incrementing the variable count by 1 on every Touch
+	                count++;
+	                v.setBackgroundColor(Color.MAGENTA);
+	                Toast.makeText(MainActivity.this,
+	                		"Has pulsat el boto " + count + " vegada",Toast.LENGTH_SHORT).show();
+	                return false;
+	            }
+	        });
 	
 			Button boto2 = new Button(this);
 			boto2.setTextColor(Color.RED);
